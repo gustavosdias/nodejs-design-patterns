@@ -1,0 +1,29 @@
+{
+  "name": "projectmark",
+  "version": "1.0.0",
+  "description": "Backend Take Home",
+  "homepage": "https://github.com/gustavosdias/projectmark#readme",
+  "bugs": {
+    "url": "https://github.com/gustavosdias/projectmark/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gustavosdias/projectmark.git"
+  },
+  "license": "ISC",
+  "author": "Gustavo dos Santos Dias",
+  "type": "module",
+  "main": "dist/index.js",
+  "scripts": {
+    "test": "test",
+    "dev": "tsx watch src/index.ts"
+  },
+  "devDependencies": {
+    "@types/node": "^22.14.1",
+    "tsx": "^4.19.3",
+    "typescript": "^5.8.3"
+  },
+  "dependencies": {
+    "express": "^5.1.0"
+  }
+}
