@@ -16,7 +16,8 @@
   "main": "dist/index.js",
   "scripts": {
     "test": "vitest",
-    "dev": "tsx watch src/index.ts"
+    "dev": "tsx watch src/index.ts",
+    "prepare": "husky"
   },
   "devDependencies": {
     "@eslint/css": "^0.6.0",
@@ -26,6 +27,7 @@
     "@types/lowdb": "^1.0.15",
     "@types/nanoid": "^2.1.0",
     "@types/node": "^22.14.1",
+    "@types/swagger-ui-express": "^4.1.8",
     "eslint": "^9.24.0",
     "globals": "^16.0.0",
     "husky": "^9.1.7",
@@ -37,7 +39,10 @@
   "dependencies": {
     "cors": "^2.8.5",
     "express": "^5.1.0",
+    "express-async-handler": "^1.2.0",
     "lowdb": "^7.0.1",
-    "nanoid": "^5.1.5"
+    "nanoid": "^5.1.5",
+    "swagger-jsdoc": "^6.2.8",
+    "swagger-ui-express": "^5.0.1"
   }
 }

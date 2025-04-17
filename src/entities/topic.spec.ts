@@ -5,6 +5,7 @@ import { createTopic } from "./topic.js";
 /** Article */
 test('create an article topic', () => {
     const topic = createTopic({
+        id: 0,
         name: 'Documentary about John Doe',
         content: '<html></html>',
         parentTopicId: 123,
@@ -16,6 +17,7 @@ test('create an article topic', () => {
 
 test('createdAt of topic must be after or equal the current timestamp', () => {
     const topic = createTopic({
+        id: 0,
         name: 'Documentary about John Doe',
         content: '<html></html>',
     });
@@ -24,6 +26,7 @@ test('createdAt of topic must be after or equal the current timestamp', () => {
 
 test('createdAt and updatedAt must be equal when topic is created', () => {
     const topic = createTopic({
+        id: 0,
         name: 'Documentary about John Doe',
         content: '<html></html>',
     });
@@ -32,6 +35,7 @@ test('createdAt and updatedAt must be equal when topic is created', () => {
 
 test('must not be possible to create a topic with an empty name', () => {
     expect(() => createTopic({
+        id: 0,
         name: '',
         content: '<html></html>',
     })).toThrowError('Topic name cannot be empty');
@@ -39,20 +43,26 @@ test('must not be possible to create a topic with an empty name', () => {
 
 test('must not be possible to create topic with an empty content', () => {
     expect(() => createTopic({
+        id: 0,
         name: 'Documentary about John Doe',
         content: '',
     })).toThrowError('Topic content cannot be empty');
 });
 
 test('must not be possible to change updatedAt value for a date before the current', () => {
-    expect(() => createTopic({
+    const topic = createTopic({
+        id: 0,
         name: 'Documentary about John Doe',
-        content: '',
-    })).toThrowError('New date cannot be equal or before current updatedAt date');
+        content: '<html></html>',
+        parentTopicId: 123,
+    });
+
+    expect(() => topic.setNewUpdatedAt(new Date("October 13, 2014 11:13:00"))).toThrowError('New date cannot be equal or before current updatedAt date');
 });
 
 test('parentTopicId from topic can be undefined', () => {
     const topic = createTopic({
+        id: 0,
         name: 'Documentary about John Doe',
         content: '<html></html>',
     });

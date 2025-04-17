@@ -1,0 +1,154 @@
+{
+    "title": "Dynamic Knowledge Base System Library API",
+    "swagger": "2.0",
+    "description": "",
+    "termsOfService": "http://swagger.io/terms/",
+    "contact": {
+      "name": "API Support",
+      "url": "http://www.swagger.io/support",
+      "email": "support@swagger.io"
+    },
+    "license": {
+      "name": "Apache 2.0",
+      "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
+    },
+    "version": "1.0.0",
+    "paths": {
+        "/topics/": {
+          "post": {
+              "tags": ["Topic"],
+              "description": "",
+              "consumes": [
+                "application/json"
+              ],
+              "produces": [
+                "application/json"
+              ],
+              "parameters": [
+                {
+                  "in": "body",
+                  "name": "body",
+                  "required": true,
+                  "schema": {
+                    "$ref": "#/definitions/Topic"
+                  }
+                }
+              ],
+
+              "responses": {
+                "405": {
+                  "description": "Invalid input"
+                },
+                "200": {
+                  "description": "Success"
+                }
+              }
+          }
+        },
+        "/topics/:id": {
+          "get": {
+            "tags": ["Topic"],
+            "description": "Returns a topics from the system that the user has access to",
+            "parameters": [
+              {
+                "in": "query",
+                "name": "id",
+                "required": true,
+                "type":"integer"
+              }
+            ],
+            "produces": [
+                "application/json"
+            ],
+            "responses": {
+                "200": {
+                    "description": "Returns a topic.",
+                    "schema": {
+                        "type": "array"
+                    }
+                }
+            }
+          },
+          "delete": {
+            "tags": ["Topic"],
+            "description": "Deletes a topic",
+            "parameters": [
+              {
+                "in": "query",
+                "name": "id",
+                "required": true,
+                "type":"integer"
+              }
+            ],
+            "produces": [
+                "application/json"
+            ],
+            "responses": {
+                "200": {
+                    "description": "Returns id of deleted topic",
+                    "schema": {
+                        "type": "array"
+                    }
+                }
+            }
+          },
+          "put": {
+            "tags": ["Topic"],
+            "description": "",
+            "consumes": [
+              "application/json"
+            ],
+            "produces": [
+              "application/json"
+            ],
+            "parameters": [
+              {
+                "in": "body",
+                "name": "body",
+                "required": true,
+                "schema": {
+                  "$ref": "#/definitions/Topic"
+                }
+              },
+              {
+                "in": "query",
+                "name": "id",
+                "required": true,
+                "type":"integer"
+              }
+            ],
+            "responses": {
+              "405": {
+                "description": "Invalid input"
+              },
+              "200": {
+                "description": "Success"
+              }
+            }
+        }
+      }
+    },
+    "definitions": {
+        "Topic": {
+            "type": "object",
+            "required": [
+                "name",
+                "content"
+            ],
+            "properties": {
+                "name": {
+                    "type": "string",
+                    "example": "Documentary about John Doe"
+                },
+                "content": {
+                    "type": "string",
+                    "example": "Documentary about John Doe"
+                },
+                "parentTopicId": {
+                    "type": "integer",
+                    "example": 0
+                }
+            }
+        }
+    }
+}

@@ -15,6 +15,10 @@ abstract class Topic implements ITopic{
         return this.props.id;
     }
 
+    set id(newValue) {
+        this.props.id = newValue;
+    }
+
     get name() {
         return this.props.name;
     }
@@ -49,6 +53,10 @@ abstract class Topic implements ITopic{
         return this.props.version;
     }
 
+    set version(newValue) {
+        this.props.version = newValue;
+    }
+
     get parentTopicId() {
         return this.props.parentTopicId;
     }
@@ -56,6 +64,8 @@ abstract class Topic implements ITopic{
     constructor(props: ITopic) {
         if(props.name == '') throw new Error('Topic name cannot be empty');
         if(props.content == '') throw new Error('Topic content cannot be empty');
+        props.id = -1;
+        props.version = -1;
         this.props = props;
     }
 

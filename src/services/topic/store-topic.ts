@@ -1,4 +1,5 @@
 import { createTopic, ITopic } from "../../entities/topic.js";
+import { TopicsRepository } from "../../repositories/topics-respository.js";
 
 interface StoreTopicRequest {
     name: string,
@@ -9,6 +10,9 @@ interface StoreTopicRequest {
 type StoreTopicResponse = ITopic
 
 export class StoreTopic {
+    constructor(
+        private topicsRespository: TopicsRepository 
+    ){}
     async execute({
         name,
         content,
@@ -19,7 +23,7 @@ export class StoreTopic {
             content,
             parentTopicId,
         });
-        return topic;
+        return this.topicsRespository.store(topic);
     }
 }
 
