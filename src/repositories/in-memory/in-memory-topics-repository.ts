@@ -21,7 +21,7 @@ export class InMemoryTopicsRepository implements TopicsRepository {
     }
 
     async update(id: number, newTopic: ITopic): Promise<ITopic> {
-        const currentTopic =   this.topics.filter(t => t.id === id)
+        const currentTopic =   this.topics.filter(t => t.id == id)
             .sort((a, b) => b.version! - a.version!)[0];
         if(!currentTopic) {
             throw new Error(`Topic with id: ${id} not found.`);
@@ -37,7 +37,7 @@ export class InMemoryTopicsRepository implements TopicsRepository {
     async removeById(id: number): Promise<number> {
         const topicIndexes: number[] = [];
         this.topics.forEach((t, i) => {
-            if(t.id === id) {
+            if(t.id == id) {
                 topicIndexes.push(i);
             } 
         });
@@ -52,8 +52,10 @@ export class InMemoryTopicsRepository implements TopicsRepository {
     }
 
     async getById(id: number): Promise<ITopic> {
-        const topic = this.topics.filter(t => t.id === id)
-            .sort((a, b) => b.version! - a.version!)[0];
+        const filtered = this.topics.filter(t => t.id == id);
+        const topic = filtered.length === 1
+            ? filtered[0]
+            : filtered.sort((a, b) => (b.version ?? 0) - (a.version ?? 0))[0] ?? null;
         if(!topic) throw new Error(`Topic with id: ${id} not found`);
         return topic;
     }

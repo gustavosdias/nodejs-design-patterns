@@ -10,6 +10,7 @@ export interface ITopic {
     addChild?: (topic: ITopic)=> void;
     setNewUpdatedAt?: (newValue: Date)=> void;
     removeChild?: (topic: ITopic)=> void;
+    removeAllChildren?: () => void;
     setParent?: (topic: ITopic | null)=> void;
     getParent?: ()=> ITopic;
     getShortestPathBewtweeenTwoTopics?: (start: ITopic, end: ITopic)=> number | null;

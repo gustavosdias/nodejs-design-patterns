@@ -1,9 +1,7 @@
 import {expect, test} from "vitest";
 import { createTopic, ITopic } from "./topic.js";
 
-
-/** Article */
-test('create an article topic', () => {
+test('create a topic', () => {
     const topic = createTopic({
         id: 0,
         name: 'Documentary about John Doe',

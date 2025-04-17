@@ -3,8 +3,8 @@ import { getById, remove, store, update } from "../controllers/topic-controller.
 
 const topicRouter = Router();
 
-topicRouter.get('/:id', getById);
 topicRouter.post('/', store);
+topicRouter.get('/:id', getById);
 topicRouter.delete('/:id', remove);
 topicRouter.put('/:id', update);
 
