@@ -49,7 +49,7 @@ The algorithm for graph traversal can be executed within `topic.spec.ts`. This f
 Swagger UI available at:
 
 ```
-http://localhost:3000/api-docs
+http://localhost:3000/api
 ```
 
 Generated via `swagger-jsdoc` and served with `swagger-ui-express`.
