@@ -80,10 +80,3 @@ Covers:
 npm install
 npm run dev
 ```
-
----
-
-## 🛠️ Author
-
-Gustavo dos Santos Dias  
-[projectmark](https://github.com/gustavosdias/projectmark)
