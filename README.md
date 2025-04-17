@@ -83,23 +83,6 @@ npm run dev
 
 ---
 
-## 🗂️ Structure
-
-```
-src/
-  ├─ strategies/     # Role logic (Strategy)
-  ├─ factories/      # RoleFactory (Factory)
-  ├─ models/         # User context
-  ├─ routes/         # Express routes
-  ├─ docs/           # Swagger definitions
-  ├─ topics/         # CRUD logic for Topics
-tests/
-  └─ UserRoles.spec.ts
-  └─ topic.spec.ts   # Graph traversal algorithm tests
-```
-
----
-
 ## 🛠️ Author
 
 Gustavo dos Santos Dias  
