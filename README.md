@@ -1,4 +1,4 @@
-# ProjectMark
+# Nodejs Design Patterns with Graph Traversal Algorithm
 
 A backend system using **TypeScript**, **Express**, and design patterns to manage user roles and permissions. Includes Swagger API docs, testing with Vitest. A CRUD implementation for Topics and a graph traversal algorithm are also featured.
 
