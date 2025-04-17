@@ -15,14 +15,25 @@ describe('Update Topic', async () => {
             content: '<html></html>',
         });
 
-        await expect(updateTopic.execute({
-            id: topic.id as number,
-            data: {
+        await expect(updateTopic.execute(
+            topic.id!,
+            {
                 name: 'Documentary about John Doe 2',
                 content: topic.content,
-            }
-        })).resolves.not.toThrow();
+            })).resolves.not.toThrow();
         expect(inMemoryTopicsRepository.topics.length).toEqual(2);
         expect(inMemoryTopicsRepository.topics[1].version).toEqual(1);
+    });
+
+    it('should throw error if topic is not found', async () => {
+        const inMemoryTopicsRepository = new InMemoryTopicsRepository();
+        const updateTopic = new UpdateTopic(inMemoryTopicsRepository);
+
+        await expect(updateTopic.execute(
+            999,
+            {
+                name: 'Documentary about John Doe 2',
+                content: '',
+            })).rejects.toThrow('Topic with id: 999 not found.');
     });
 });

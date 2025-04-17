@@ -1,14 +1,15 @@
 import { ITopic } from "../../entities/topic.js";
 import { TopicsRepository } from "../../repositories/topics-respository.js";
 
-type UpdateTopicResponse = ITopic
+type GetTopicByIdResponse = ITopic;
 
-export class UpdateTopic {
+export class GetTopicById{
     constructor(
         private topicsRespository: TopicsRepository 
     ){}
-    async execute(id: number, data: ITopic): Promise<UpdateTopicResponse> {
-        return this.topicsRespository.update(id, data);
+
+    async execute(id: number): Promise<GetTopicByIdResponse> {
+        return this.topicsRespository.getById(id);
     }
 }
 

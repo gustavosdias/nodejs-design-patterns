@@ -15,7 +15,7 @@ describe('Delete Topic', async () => {
             content: '<html></html>',
         });
 
-        await expect(removeTopic.execute(topic.id as number)).resolves.not.toThrow();
+        await expect(removeTopic.execute(topic.id!)).resolves.not.toThrow();
         expect(inMemoryTopicsRepository.topics.length).toEqual(0);
     });
 });

@@ -5,4 +5,5 @@ export interface TopicsRepository {
     update(id: number, topic: ITopic): Promise<ITopic>;
     removeById(id: number): Promise<number>;
     getById(id: number): Promise<ITopic>;
+    getByVersion(id: number, version: number): Promise<ITopic>;
 }
